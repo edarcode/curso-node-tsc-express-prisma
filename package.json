@@ -3,16 +3,24 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "sh reset_and_migrate.sh && ts-node-dev src/index.ts",
+    "dev": "ts-node-dev src/index.ts",
+    "dbrelog": "sh reset_and_migrate.sh",
+    "dbseed": "sh npx prisma db seed",
+    "pstudio": "sh npx prisma studio",
+    "dbnew": "npm run dbrelog && npm run dbseed",
     "start": "node build/index.js",
     "tsc": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "prisma": {
+    "seed": "ts-node-dev src/db/seedDb.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@faker-js/faker": "8.4.1",
     "@types/express": "4.17.21",
     "prisma": "5.15.0",
     "ts-node-dev": "2.0.0",
