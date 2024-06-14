@@ -1,7 +1,12 @@
 import { Req, Res } from "../../types/types";
-import User from "../models/User";
+import { getAllUsers } from "../db/utils/user/getAllUsers";
 
-export const getUsers = (_req: Req, res: Res) => {
-  const users = User.getAllUsers();
-  res.json(users);
+export const getUsers = async (_req: Req, res: Res) => {
+  try {
+    const users = await getAllUsers();
+    res.json(users);
+  } catch (error) {
+    console.error(error);
+    process.exit(1);
+  }
 };
