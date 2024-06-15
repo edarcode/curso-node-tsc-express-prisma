@@ -10,3 +10,13 @@ export type CreateUser = {
   role: string;
 };
 export type UpdateUser = Partial<CreateUser>;
+
+export interface ReqQN extends Req {
+  queryNormalized?: {
+    page?: number;
+    take?: number;
+    name?: string;
+    state?: boolean;
+    role?: string;
+  };
+}
