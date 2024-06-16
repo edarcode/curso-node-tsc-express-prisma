@@ -1,4 +1,4 @@
-import { connDb } from "../../connDb";
+import { connDb } from "../connDb";
 
 type Params = {
   page?: number;
@@ -8,7 +8,7 @@ type Params = {
   role?: string;
 };
 
-export const getAllUsers = async (params?: Params) => {
+export const getUsersDb = async (params?: Params) => {
   const { page = 1, take = 10, name, state, role } = params || {};
 
   const totalUsers = await connDb.user.count({

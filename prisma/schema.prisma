@@ -14,8 +14,8 @@ datasource db {
 }
 
 model User {
-  id    String  @id @default(uuid())
-  name  String  @unique
-  state Boolean
+  id    String   @id @default(uuid())
+  name  String   @unique
+  state Boolean? @default(true)
   role  String
 }

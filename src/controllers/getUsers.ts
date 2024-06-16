@@ -1,9 +1,9 @@
 import { ReqQN, Res } from "../../types/types";
-import { getAllUsers } from "../db/utils/user/getAllUsers";
+import { getUsersDb } from "../db/user/getUsersDb";
 
 export const getUsers = async (req: ReqQN, res: Res) => {
   try {
-    const users = await getAllUsers(req.queryNormalized);
+    const users = await getUsersDb(req.queryNormalized);
     res.json(users);
   } catch (error) {
     console.error(error);
