@@ -23,5 +23,5 @@ export const getUsersDb = async (params?: Params) => {
 
   const totalPages = Math.ceil(totalUsers / take) || 1;
 
-  return { page, totalPages, users };
+  return { page, totalPages, totalUsers, users };
 };
