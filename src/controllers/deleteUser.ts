@@ -1,10 +1,10 @@
 import { Req, Res } from "../../types/types";
-import User from "../models/User";
+import { deleteUserDb } from "../db/user/deleteUserDb";
 
-export const deleteUser = (req: Req, res: Res) => {
+export const deleteUser = async (req: Req, res: Res) => {
   const { id } = req.params;
   try {
-    User.deleteUser(id);
+    await deleteUserDb(id);
     res.status(204).json();
   } catch (error) {
     res.status(400).json(error);
