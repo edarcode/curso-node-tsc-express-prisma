@@ -1,11 +1,11 @@
 import { Req, Res } from "../../types/types";
-import User from "../models/User";
+import { updateUserDb } from "../db/user/updateUserDb";
 
-export const updateUser = (req: Req, res: Res) => {
+export const updateUser = async (req: Req, res: Res) => {
   const { id } = req.params;
   const dataToUpdate = req.body;
   try {
-    User.updateUser(id, dataToUpdate);
+    await updateUserDb(id, dataToUpdate);
     res.status(204).json();
   } catch (error) {
     res.status(400).json(error);
