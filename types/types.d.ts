@@ -11,6 +11,7 @@ export type CreateUser = {
 };
 export type UpdateUser = Partial<CreateUser>;
 
+export type OrderUserBy = "name" | "role" | "state";
 export interface ReqQN extends Req {
   queryNormalized?: {
     page?: number;
@@ -18,6 +19,7 @@ export interface ReqQN extends Req {
     name?: string;
     state?: boolean;
     role?: string;
+    order?: OrderUserBy;
   };
 }
 

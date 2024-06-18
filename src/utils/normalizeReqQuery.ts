@@ -8,6 +8,7 @@ export const normalizeReqQuery = (req: ReqQN) => {
   if (req.query.state === "true") state = true;
   if (req.query.state === "false") state = false;
   const role = req.query.role && String(req.query.role);
+  const order = req.query.order && String(req.query.order);
 
-  req.queryNormalized = { page, take, name, state, role };
+  req.queryNormalized = { page, take, name, state, role, order };
 };

@@ -2,6 +2,7 @@ import { Router } from "express";
 import { BODY, PARAMS, QUERY } from "../constants/typeDataReq";
 import { createUser } from "../controllers/createUser";
 import { deleteUser } from "../controllers/deleteUser";
+import { getUserById } from "../controllers/getUserById";
 import { getUsers } from "../controllers/getUsers";
 import { updateUser } from "../controllers/updateUser";
 import { normalizeData } from "../middlewares/normalizeData";
@@ -25,6 +26,7 @@ const middlewares2 = [
 ];
 
 usersRouter.get("/", middlewares, getUsers);
+usersRouter.get("/:id", validateData(schemaUuid, PARAMS), getUserById);
 usersRouter.post("/", validateData(schemaCreateUser), createUser);
 usersRouter.patch("/:id", middlewares2, updateUser);
 usersRouter.delete("/:id", validateData(schemaUuid, PARAMS), deleteUser);

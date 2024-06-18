@@ -7,6 +7,7 @@ const schema = z.object({
   name: z.string().min(1),
   state: z.enum(["true", "false"]),
   role: z.enum([STUDENT, TEACHER, OTHER]),
+  order: z.enum(["name", "role", "state"]),
 });
 
 export const schemaGetUsers = schema.partial();
