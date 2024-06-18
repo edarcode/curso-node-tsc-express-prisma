@@ -1,5 +1,5 @@
 import { fakerES as faker } from "@faker-js/faker";
-import { STUDENT, TEACHER } from "../constants/roles";
+import { OTHER, STUDENT, TEACHER } from "../constants/roles";
 import { getRandomStr } from "../utils/getRamdonStr";
 import { connDb } from "./connDb";
 
@@ -8,7 +8,7 @@ const data = Array.from({ length: 50 }).map(() => {
     id: faker.string.uuid(),
     name: faker.person.fullName(),
     state: faker.datatype.boolean(),
-    role: getRandomStr([STUDENT, TEACHER]),
+    role: getRandomStr([STUDENT, TEACHER, OTHER]),
   };
 });
 
