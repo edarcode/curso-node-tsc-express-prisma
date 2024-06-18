@@ -20,3 +20,5 @@ export interface ReqQN extends Req {
     role?: string;
   };
 }
+
+export type TypeDataReq = "body" | "query" | "params";
