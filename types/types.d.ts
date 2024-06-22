@@ -6,6 +6,7 @@ export type Next = NextFunction;
 export type Uuid = `${string}-${string}-${string}-${string}-${string}`;
 export type CreateUser = {
   name: string;
+  username: string;
   state: boolean;
   role: string;
 };

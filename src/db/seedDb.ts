@@ -6,7 +6,8 @@ import { connDb } from "./connDb";
 const data = Array.from({ length: 50 }).map(() => {
   return {
     id: faker.string.uuid(),
-    name: faker.person.fullName(),
+    username: faker.internet.userName().toLowerCase(),
+    name: faker.person.fullName().toLowerCase(),
     state: faker.datatype.boolean(),
     role: getRandomStr([STUDENT, TEACHER, OTHER]),
   };

@@ -3,10 +3,10 @@ import { connDb } from "../connDb";
 
 export const updateUserDb = async (
   id: string,
-  { name, state, role }: UpdateUser
+  { name, username, state, role }: UpdateUser
 ) => {
   return await connDb.user.update({
     where: { id },
-    data: { name, state, role },
+    data: { name, username, state, role },
   });
 };

@@ -1,17 +1,22 @@
+import { Prisma } from "@prisma/client";
 import { OrderUserBy } from "../../../types/types";
 import { connDb } from "../connDb";
 
 export const getUsersDb = async (params?: Params) => {
   const { page = 1, take = 10, name, state, role, order } = params || {};
 
-  const totalUsers = await connDb.user.count({
-    where: { name: { contains: name, mode: "insensitive" }, state, role },
-  });
+  const where: Prisma.UserWhereInput = {
+    name: { contains: name, mode: "insensitive" },
+    state,
+    role,
+  };
+
+  const totalUsers = await connDb.user.count({ where });
 
   const users = await connDb.user.findMany({
     skip: (page - 1) * take,
     take,
-    where: { name: { contains: name, mode: "insensitive" }, state, role },
+    where,
     orderBy: order && ORDER_BY[order],
   });
 
