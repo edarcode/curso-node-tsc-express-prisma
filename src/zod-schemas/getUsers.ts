@@ -1,13 +1,14 @@
 import z from "zod";
+import { NAME, ROLE, STATE } from "../constants/optionOrderUsers";
 import { OTHER, STUDENT, TEACHER } from "../constants/roles";
 
 const schema = z.object({
-  page: z.string().min(1),
-  take: z.string().min(1),
+  page: z.coerce.number().min(1),
+  take: z.coerce.number().min(1),
   name: z.string().min(1),
-  state: z.enum(["true", "false"]),
+  state: z.coerce.boolean(),
   role: z.enum([STUDENT, TEACHER, OTHER]),
-  order: z.enum(["name", "role", "state"]),
+  order: z.enum([NAME, ROLE, STATE]),
 });
 
 export const schemaGetUsers = schema.partial();

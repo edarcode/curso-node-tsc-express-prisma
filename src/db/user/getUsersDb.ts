@@ -12,18 +12,12 @@ export const getUsersDb = async (params?: Params) => {
     skip: (page - 1) * take,
     take,
     where: { name: { contains: name, mode: "insensitive" }, state, role },
-    orderBy: order && orderBy[order],
+    orderBy: order && ORDER_BY[order],
   });
 
   const totalPages = Math.ceil(totalUsers / take) || 1;
 
   return { page, totalPages, totalUsers, users };
-};
-
-const orderBy: OrderBy = {
-  name: { name: "asc" },
-  role: { role: "asc" },
-  state: { state: "asc" },
 };
 
 type Params = {
@@ -35,12 +29,8 @@ type Params = {
   order?: OrderUserBy;
 };
 
-type OrderDir = "asc" | "desc";
-type OrderName = { name: OrderDir };
-type OrderRole = { role: OrderDir };
-type OrderState = { state: OrderDir };
-type OrderBy = {
-  name: OrderName;
-  role: OrderRole;
-  state: OrderState;
-};
+const ORDER_BY = {
+  name: { name: "asc" },
+  role: { role: "asc" },
+  state: { state: "asc" },
+} as const;
