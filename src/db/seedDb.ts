@@ -3,10 +3,13 @@ import { OTHER, STUDENT, TEACHER } from "../constants/roles";
 import { getRandomStr } from "../utils/getRamdonStr";
 import { connDb } from "./connDb";
 
-const data = Array.from({ length: 50 }).map(() => {
+const SIZE_DATA = 50000;
+const usernames = faker.helpers.uniqueArray(faker.internet.userName, SIZE_DATA);
+
+const data = Array.from({ length: SIZE_DATA }).map((_, i) => {
   return {
     id: faker.string.uuid(),
-    username: faker.internet.userName().toLowerCase(),
+    username: usernames[i].toLowerCase(),
     name: faker.person.fullName().toLowerCase(),
     state: faker.datatype.boolean(),
     role: getRandomStr([STUDENT, TEACHER, OTHER]),
