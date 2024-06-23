@@ -1,5 +1,5 @@
-import { Req, Res } from "../../types/types";
-import { createUserDb } from "../db/user/createUserDb";
+import { Req, Res } from "../../../types/types";
+import { createUserDb } from "../../db/user/createUserDb";
 
 export const createUser = async (req: Req, res: Res) => {
   try {

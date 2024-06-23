@@ -1,5 +1,5 @@
-import { Req, Res } from "../../types/types";
-import { deleteUserDb } from "../db/user/deleteUserDb";
+import { Req, Res } from "../../../types/types";
+import { deleteUserDb } from "../../db/user/deleteUserDb";
 
 export const deleteUser = async (req: Req, res: Res) => {
   const { id } = req.params;

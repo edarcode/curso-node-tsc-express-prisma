@@ -14,15 +14,23 @@ export type UpdateUser = Partial<CreateUser>;
 
 export type OrderUserBy = "name" | "role" | "state";
 
-export interface ReqQN extends Req {
-  queryNormalized?: {
-    page?: number;
-    take?: number;
-    name?: string;
-    state?: boolean;
-    role?: string;
-    order?: OrderUserBy;
-  };
+export interface ReqQueryParsed extends Req {
+  queryParsed?: QueryParsedGetUsers | QueryParsedGetProducts;
 }
 
+export type QueryParsedGetUsers = {
+  page?: number;
+  take?: number;
+  name?: string;
+  state?: boolean;
+  role?: string;
+  order?: OrderUserBy;
+};
+
+export type QueryParsedGetProducts = {
+  size?: number;
+};
+
 export type TypeDataReq = "body" | "query" | "params";
+
+export type ReqQuery = QueryString.ParsedQs;

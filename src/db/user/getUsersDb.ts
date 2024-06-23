@@ -1,9 +1,9 @@
 import { Prisma } from "@prisma/client";
-import { OrderUserBy } from "../../../types/types";
+import { QueryParsedGetUsers } from "../../../types/types";
 import { connDb } from "../connDb";
 
-export const getUsersDb = async (params?: Params) => {
-  const { page = 1, take = 10, name, state, role, order } = params || {};
+export const getUsersDb = async (queryParsed?: QueryParsedGetUsers) => {
+  const { page = 1, take = 10, name, state, role, order } = queryParsed || {};
 
   const where: Prisma.UserWhereInput = {
     name: { contains: name, mode: "insensitive" },
@@ -23,15 +23,6 @@ export const getUsersDb = async (params?: Params) => {
   const totalPages = Math.ceil(totalUsers / take) || 1;
 
   return { page, totalPages, totalUsers, users };
-};
-
-type Params = {
-  page?: number;
-  take?: number;
-  name?: string;
-  state?: boolean;
-  role?: string;
-  order?: OrderUserBy;
 };
 
 const ORDER_BY = {

@@ -1,5 +1,5 @@
-import { Req, Res } from "../../types/types";
-import { getUserByIdDb } from "../db/user/getUserByIdDb";
+import { Req, Res } from "../../../types/types";
+import { getUserByIdDb } from "../../db/user/getUserByIdDb";
 
 export const getUserById = async (req: Req, res: Res) => {
   const { id } = req.params;

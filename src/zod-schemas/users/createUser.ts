@@ -1,5 +1,5 @@
 import z from "zod";
-import { OTHER, STUDENT, TEACHER } from "../constants/roles";
+import { OTHER, STUDENT, TEACHER } from "../../constants/roles";
 
 // regex does not accept lowercase, does not accept accents and cannot start with numbers
 const regex = /^(?!\d)[^A-ZáéíóúüñÁÉÍÓÚÜÑ]*$/;

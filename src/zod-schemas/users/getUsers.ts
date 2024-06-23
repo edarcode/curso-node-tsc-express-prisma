@@ -1,6 +1,6 @@
 import z from "zod";
-import { NAME, ROLE, STATE } from "../constants/optionOrderUsers";
-import { OTHER, STUDENT, TEACHER } from "../constants/roles";
+import { NAME, ROLE, STATE } from "../../constants/optionOrderUsers";
+import { OTHER, STUDENT, TEACHER } from "../../constants/roles";
 
 const schema = z.object({
   page: z.coerce.number().min(1),

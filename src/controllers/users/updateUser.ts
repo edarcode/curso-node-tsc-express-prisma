@@ -1,5 +1,5 @@
-import { Req, Res } from "../../types/types";
-import { updateUserDb } from "../db/user/updateUserDb";
+import { Req, Res } from "../../../types/types";
+import { updateUserDb } from "../../db/user/updateUserDb";
 
 export const updateUser = async (req: Req, res: Res) => {
   const { id } = req.params;

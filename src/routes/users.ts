@@ -1,14 +1,15 @@
 import { Router } from "express";
 import { BODY, PARAMS, QUERY } from "../constants/typeDataReq";
-import { createUser } from "../controllers/createUser";
-import { deleteUser } from "../controllers/deleteUser";
-import { getUserById } from "../controllers/getUserById";
-import { getUsers } from "../controllers/getUsers";
-import { updateUser } from "../controllers/updateUser";
+import { createUser } from "../controllers/users/createUser";
+import { deleteUser } from "../controllers/users/deleteUser";
+import { getUserById } from "../controllers/users/getUserById";
+import { getUsers } from "../controllers/users/getUsers";
+import { updateUser } from "../controllers/users/updateUser";
 import { validateData } from "../middlewares/validateData";
-import { schemaCreateUser } from "../zod-schemas/createUser";
-import { schemaGetUsers } from "../zod-schemas/getUsers";
-import { schemaUpdateUser } from "../zod-schemas/updateUser";
+
+import { schemaCreateUser } from "../zod-schemas/users/createUser";
+import { schemaGetUsers } from "../zod-schemas/users/getUsers";
+import { schemaUpdateUser } from "../zod-schemas/users/updateUser";
 import { schemaUuid } from "../zod-schemas/uuid";
 
 export const usersRouter = Router();
