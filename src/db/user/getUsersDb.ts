@@ -22,7 +22,7 @@ export const getUsersDb = async (queryParsed?: QueryParsedGetUsers) => {
 
   const totalPages = Math.ceil(totalUsers / take) || 1;
 
-  return { page, totalPages, totalUsers, users };
+  return { page, totalPages, users };
 };
 
 const ORDER_BY = {
