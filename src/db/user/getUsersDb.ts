@@ -3,10 +3,19 @@ import { QueryParsedGetUsers } from "../../../types/types";
 import { connDb } from "../connDb";
 
 export const getUsersDb = async (queryParsed?: QueryParsedGetUsers) => {
-  const { page = 1, take = 10, name, state, role, order } = queryParsed || {};
+  const {
+    page = 1,
+    take = 10,
+    name,
+    username,
+    state,
+    role,
+    order,
+  } = queryParsed || {};
 
   const where: Prisma.UserWhereInput = {
     name: { contains: name, mode: "insensitive" },
+    username,
     state,
     role,
   };

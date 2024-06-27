@@ -22,6 +22,7 @@ export type QueryParsedGetUsers = {
   page?: number;
   take?: number;
   name?: string;
+  username?: string;
   state?: boolean;
   role?: string;
   order?: OrderUserBy;
