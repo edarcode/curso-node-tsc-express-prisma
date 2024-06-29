@@ -3,7 +3,7 @@ import { OTHER, STUDENT, TEACHER } from "../constants/roles";
 import { getRandomStr } from "../utils/getRamdonStr";
 import { connDb } from "./connDb";
 
-const SIZE_DATA = 50000;
+const SIZE_DATA = 30;
 const usernames = faker.helpers.uniqueArray(faker.internet.userName, SIZE_DATA);
 
 const data = Array.from({ length: SIZE_DATA }).map((_, i) => {
